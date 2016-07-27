@@ -13,7 +13,7 @@ To use this code clone from github and run a `mvn clean install` from the comman
 In the `target` directory you can run it as follows: 
 
 ```
-/path/to/business-card-parser/target$ cat ../src/test/resources/example-arthur-wilson.txt
+user@hostname ~/path/to/business-card-parser/target$ cat ../src/test/resources/example-arthur-wilson.txt
 Arthur Wilson
 Software Engineer
 Decision & Security Technologies
@@ -23,7 +23,11 @@ Suite 229
 Arlington, VA 22209
 Tel: +1 (703) 555-1259
 Fax: +1 (703) 555-1200
-/path/to/business-card-parser/target$ java -jar business-card-parser-1.0-SNAPSHOT-jar-with-dependencies.jar -f ../src/test/resources/example-arthur-wilson.txt
+user@hostname ~/path/to/business-card-parser/target$ java -jar business-card-parser-1.0-SNAPSHOT-jar-with-dependencies.jar
+usage: business-card-parser.jar
+ -f,--file <arg>   File to parse
+ -h,--help         Show help
+user@hostname ~/path/to/business-card-parser/target$ java -jar business-card-parser-1.0-SNAPSHOT-jar-with-dependencies.jar -f ../src/test/resources/example-arthur-wilson.txt
 Name: Arthur Wilson
 Phone: 17035551259
 Email: awilson@abctech.com
