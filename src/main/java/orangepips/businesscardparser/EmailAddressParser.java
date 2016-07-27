@@ -3,11 +3,11 @@ package orangepips.businesscardparser;
 import java.util.regex.Pattern;
 
 /**
- *
+ * Parses an email address out of the passed data to {@link #consider(String)}
  */
 public class EmailAddressParser {
     /**
-     * RegEx take from http://emailregex.com/ - there's also an extensive discussion in the oomments regarding why
+     * RegEx taken from http://emailregex.com/ - there's also an extensive discussion in the oomments regarding why
      * /.+@.+/ as a RegEx is a better solution. Suffice to say only surefire way to validate a given value is an
      * email address is actually attempt to email it and check the response (e.g. bounceback)
      */
@@ -15,7 +15,13 @@ public class EmailAddressParser {
 
     private String emailAddress = "";
 
+    /**
+     * Evaluates passed line to search for a string that appears to be an email address.
+     * If value has already been found that matches ignores all other values passed in (i.e. first in wins)
+     * @param line value to search for an email address
+     */
     public void consider(String line) {
+        if (this.emailAddress.length() > 0) return;
         if (EMAIL_ADDDRESS_PATTERN.matcher(line).matches()) {
             this.emailAddress = line;
         }

@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by mlesko on 7/26/16.
+ * Unit tests for {@link orangepips.businesscardparser.NameParser}
  */
 public class NameParserTest {
     @Test

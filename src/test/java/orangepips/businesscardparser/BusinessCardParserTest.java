@@ -2,17 +2,39 @@ package orangepips.businesscardparser;
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Joiner;
+import com.google.common.io.Files;
 import com.google.common.io.Resources;
+import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
 import static org.junit.Assert.*;
 
 /**
- * Created by mlesko on 7/25/16.
+ * Unit tests for {@link orangepips.businesscardparser.BusinessCardParser}
  */
 public class BusinessCardParserTest {
+//    @Rule
+//    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+//
+//    @org.junit.Test
+//    public void testMainParseFile() throws Exception {
+//        URL url = Resources.getResource("example-arthur-wilson.txt");
+//        String content = Resources.toString(url, Charsets.UTF_8);
+//        File temporaryFile = temporaryFolder.newFile("example-arthur-wilson.txt");
+//        Files.write(content, temporaryFile, Charsets.UTF_8);
+//
+//        BusinessCardParser.main("-f " + temporaryFile.getAbsolutePath());
+//    }
+
+    @org.junit.Test
+    public void testMainShowHelp() throws Exception {
+        BusinessCardParser.main("-h");
+    }
+
     @org.junit.Test
     public void getContactInfoErinWright() throws Exception {
         doTest("example-erin-wright.txt", "Erin Wright", "12025550152", "erin@nac.com");

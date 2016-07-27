@@ -13,7 +13,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * Find the most likely proper name in lines passed to {@link #consider(String)}. Uses Apache OpenNLP to evaluate
+ * and determine a probability. Returns the highest probability value from {@link #getName()}. Note, that the evaluation
+ * may only consider part of the line to be a proper name, but the entire line is returned under the assumption the
+ * data passed will have a separate line with the proper name.
  */
 class NameParser {
     private static Tokenizer tokenizer = null;
@@ -61,6 +64,11 @@ class NameParser {
         return "";
     }
 
+    /**
+     * Uncomment the reference to this in {@link #consider(String)} to see how OpenNLP evaluated the given line.
+     * @param tokens
+     * @param nameSpans
+     */
     private void debug(String[] tokens, Span[] nameSpans) {
         if (nameSpans.length == 0) return;
         Span nameSpan = nameSpans[0];
